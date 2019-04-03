@@ -2,7 +2,7 @@ $(document).ready(function(){
   // variables needed: question#, answers, time limit 
 
   var time = 5;
-  var intervalId = setInterval(minusTimer, 1000);
+  var intervalId;
   var questionCvar = 0;
 
   // Array: need an array with objects inside of it with the questions and answers
@@ -55,8 +55,12 @@ $(document).ready(function(){
     // display the timer
     $("#timer").text(time);
     
+    if (questionCvar === 0){
+      questionCvar = 1;
+      questionCycle(questionCvar);
+    }
 
-    if (time === 0){
+    else if (time === 0 && questionCvar !== 4){
       questionCvar++
       questionCycle(questionCvar);
       time = 5;
@@ -64,8 +68,11 @@ $(document).ready(function(){
       timerRun();
     }
     else if (questionCvar === 4){
-      clearInterval(intervalId);
-      
+      return;
+      // clearInterval(intervalId);
+      // $("#timer").text("0");
+      // $("#clear").empty();
+
       
     }
   }

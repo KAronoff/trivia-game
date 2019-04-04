@@ -1,11 +1,14 @@
 $(document).ready(function(){
   // variables needed: question#, answers, time limit 
 
-  var time = 40;
+  var time = 5;
   var intervalId;
   var questionCvar = 0;
   var correctAnswer = 0;
   var wrongAnswer = 0;
+  var $findVal;
+
+  var btnChoice = false;
 
   // Array: need an array with objects inside of it with the questions and answers
 
@@ -81,7 +84,7 @@ $(document).ready(function(){
     if (questionCvar === 4){
       return;
     };
-
+    btnChoice = false;
       $("#question").text(triviaQ[questionCvar].Question);
 
       $("#answer1").text(triviaQ[questionCvar].Answer.A.a);
@@ -92,11 +95,7 @@ $(document).ready(function(){
         $("#answer1").val(triviaQ[questionCvar].Answer.A.b);
         $("#answer2").val(triviaQ[questionCvar].Answer.B.b);
         $("#answer3").val(triviaQ[questionCvar].Answer.C.b);
-        $("#answer4").val(triviaQ[questionCvar].Answer.D.b);
-
-
-
-    
+        $("#answer4").val(triviaQ[questionCvar].Answer.D.b);    
     }
 
 
@@ -115,7 +114,7 @@ $(document).ready(function(){
     else if (time === 0 && questionCvar !== 4){
       questionCvar++
       questionCycle(questionCvar);
-      time = 40;
+      time = 5;
       $("#timer").text(time);
       timerRun();
     }
@@ -123,6 +122,9 @@ $(document).ready(function(){
       clearInterval(intervalId);
       $("#timer").text("0");
       $("#clear").empty();
+      $("#timer").empty()
+      finalScores();
+
       
 
       
@@ -134,15 +136,21 @@ $(document).ready(function(){
     intervalId = setInterval(minusTimer, 1000);
   }
 
-  var $findVal = this.attr("value")
+  
 
   // stuff to check if the answer is correct
   function checkAnswer ($findVal) {
-    if ($findVal === 0) {
-      wrongAnswer++;
+    if (btnChoice === true){
+      return;
     }
-    else if (this.value() === 1) {
+
+    if ($findVal === "0") {
+      wrongAnswer++;
+      
+    }
+    else if ($findVal === "1") {
       correctAnswer++
+      
     }
     console.log(`this is correct ${correctAnswer} this is wrong ${wrongAnswer}`)
 
@@ -150,9 +158,40 @@ $(document).ready(function(){
   // running stuff in the game
   $("#startGame").on("click", timerRun);
 
-  $("#answer1").on("click", checkAnswer($findVal));
-  $("#answer2").on("click", checkAnswer($findVal));
-  $("#answer3").on("click", checkAnswer($findVal));
-  $("#answer4").on("click", checkAnswer($findVal));
+  $("#answer1").on("click", function(){
+    $findVal = $(this).val();
+    checkAnswer($findVal);
+    btnChoice = true;
+  });
+  $("#answer2").on("click", function(){
+    $findVal = $(this).val();
+    checkAnswer($findVal);
+    btnChoice = true;
+  });
+  $("#answer3").on("click", function(){
+    $findVal = $(this).val();
+    checkAnswer($findVal);
+    btnChoice = true;
+  });
+  $("#answer4").on("click", function(){
+    $findVal = $(this).val();
+    checkAnswer($findVal);
+    btnChoice = true;
+  });
+  // function to append score to end of game
+  function finalScores (){
+    // div id clear
+    var $newDiv = $("<div>")
 
+    // creating a p for the "correct" score
+    $("<p>").text(`Wrong: ${wrongAnswer}`)
+    .addClass("display-3")
+    .appendTo($newDiv);
+
+    $("<p>").text(`Correct: ${correctAnswer}`)
+    .addClass("display-3")
+    .appendTo($newDiv);
+
+    $("#clear").append($newDiv);
+  }
 });

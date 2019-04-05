@@ -1,4 +1,26 @@
+body {
+  font-family: 'PT Sans Narrow', sans-serif;
+  font-size: 1.5em;
+}
+.custom-jumbo {
+  background-color: #DCBCDF
+}
+.title {
+  font-family: 'Fugaz One', cursive;
+  font-size: 3em;
+  color: #421B32;
+}
+.btnclass {
+  background-color: #530858;
+  color: #D3DDDA;
+  border-color: #D3DDDA;
+}
 
+.btnclass:hover {
+  color: #fff;
+  background-color: #7F9792;
+  border-color: #7F9792;
+}
 .answerscss {
   visibility: hidden;
 }

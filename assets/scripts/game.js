@@ -9,6 +9,9 @@ $(document).ready(function(){
   var $findVal;
 
   var btnChoice = false;
+  var gameRun = false;
+
+  
 
   // Array: need an array with objects inside of it with the questions and answers
 
@@ -78,6 +81,10 @@ $(document).ready(function(){
     }
   }
   // question cycling
+
+  function hidden (){
+    $("#answerArea").css("visibility", "visible");
+  }
 
   function questionCycle (questionCvar){
 
@@ -157,6 +164,7 @@ $(document).ready(function(){
   }
   // running stuff in the game
   $("#startGame").on("click", timerRun);
+  $("#startGame").on("click", hidden)
 
   $("#answer1").on("click", function(){
     $findVal = $(this).val();

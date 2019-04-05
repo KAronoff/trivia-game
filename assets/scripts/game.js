@@ -17,86 +17,86 @@ $(document).ready(function(){
 
   var triviaQ = {
     1: {
-      Question: "What date (on the Jewish Calendar) does Pesach(passover) start?",
+      Question: "The number 4 shows up mulltiple times during the seder. Which is NOT a reference to the number 4?",
       Answer: {
         A: {
-          a: "15th of Nissan",
-          b: 1
+          a: "Questions",
+          b: 0
         },
         B: {
-          a: "The new moon of Nissan",
+          a: "Cups of Wine",
           b: 0
         },
         C: {
-          a: "Trick question, there is no Passover",
-          b: 0
+          a: "Plagues",
+          b: 1
         },
         D: {
-         a: "The 15th of Adar",
+         a: "Sons",
          b: 0
         },
       }
     },
     2: {
-      Question: "How many questions do we ask at the seder?",
+      Question: "In the final song of the seder, 'Chad Gadya/One Kid Goat' what are the active and passive roles of the fire?",
       Answer: {
         A: {
-          a: "Google",
-          b: 0
-        },
-        B: {
-          a: "4",
+          a: "Burns the stick, quenched by water",
           b: 1
         },
+        B: {
+          a: "bites the cat, beaten by the stick",
+          b: 0
+        },
         C: {
-          a: "No questions are asked because you're already supposed ot know everything",
+          a: "There is no fire",
           b: 0
         },
         D: {
-          a: "What's a question?",
+          a: "Toasts the marshmallow, extinguished by sand",
           b: 0
         }
       }
     },
     3: {
-      Question: "Which direction do we lean during the seder?",
+      Question: "What event in Jewish history is celebrated on Passover?",
       Answer: {
         A: {
-          a: "Right",
+          a: "The revelation at Mount Sinai",
           b: 0
         },
         B: {
-          a: "left",
-          b: 1
-        },
-        C: {
-          a: "We don't, we float",
+          a: "The defeat of the Syrian Greek army and rededication of the Temple",
           b: 0
         },
+        C: {
+          a: "The Exodus from Egypt",
+          b: 1
+        },
         D: {
-          a: "Badger Mole",
+          a: "The crucifixion of Jesus of Nazareth",
           b: 0
         }
       }
     },
     4: {
-      Question: "What is the meal called that we eat on the first 2 nights of passover?",
+      Question: "The seder is the large festive meal on the first night(s) of Passover. The word 'seder' means order. Which of the following choices lists Seder steps in the proper order?",
       Answer: {
         A: {
-          a: "Seder",
-          b: 1
+          a: "Sanctification of the holiday, ritual hand washing without a blessing, dipping a vegatable in salt water, breaking the middle matza",
+          b: 0
         },
         B: {
-          a: "There is no name, it's called 'let's eat!'",
+          a: "Telling the story, ritual hand washing with a blessing, eating matza, eating bitter herbs, eating a 'sandwich'",
           b: 0
         },
         C: {
-          a: "Food other than matzo is forbidden on passover",
+          a: "The full festive meal, eating the afikomen, grace after meals, songs of praise, songs of acceptance",
           b: 0
         },
         D: {
-          a: "Wine",
-          b: 0
+          a: "All of the above",
+          b: 1
         }
       }
     },
@@ -145,6 +145,8 @@ $(document).ready(function(){
       time = 15;
       $("#timer").text(time);
       timerRun();
+      $(".btnclass").css({"background-color":"#530858", "border-color":"#530858", "color":"#D3DDDA"});
+      
     }
     else if (questionCvar === 5){
       clearInterval(intervalId);
@@ -190,22 +192,38 @@ $(document).ready(function(){
   $("#answer1").on("click", function(){
     $findVal = $(this).val();
     checkAnswer($findVal);
+    if (btnChoice === false) {
+      $("#answer1").css({"background-color":"#7F9792", "border-color":"#7F9792", "color":"#fff"});
+    }
     btnChoice = true;
+    
   });
   $("#answer2").on("click", function(){
     $findVal = $(this).val();
     checkAnswer($findVal);
+    if (btnChoice === false) {
+      $("#answer2").css({"background-color":"#7F9792", "border-color":"#7F9792", "color":"#fff"});
+    }
     btnChoice = true;
+    
   });
   $("#answer3").on("click", function(){
     $findVal = $(this).val();
     checkAnswer($findVal);
+    if (btnChoice === false) {
+      $("#answer3").css({"background-color":"#7F9792", "border-color":"#7F9792", "color":"#fff"});
+    }
     btnChoice = true;
+
   });
   $("#answer4").on("click", function(){
     $findVal = $(this).val();
     checkAnswer($findVal);
+    if (btnChoice === false) {
+      $("#answer4").css({"background-color":"#7F9792", "border-color":"#7F9792", "color":"#fff"});
+    }
     btnChoice = true;
+    
   });
   // function to append score to end of game
   function finalScores (){

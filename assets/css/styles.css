@@ -15,7 +15,11 @@ body {
   color: #D3DDDA;
   border-color: #D3DDDA;
 }
-
+.btn-outline-primary:not(:disabled):not(.disabled).active, .btn-outline-primary:not(:disabled):not(.disabled):active, .show>.btn-outline-primary.dropdown-toggle {
+  color: #fff;
+  background-color: #7F9792;
+  border-color: #7F9792;
+}
 .btnclass:hover {
   color: #fff;
   background-color: #7F9792;

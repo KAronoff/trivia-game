@@ -1,7 +1,7 @@
 $(document).ready(function(){
   // variables needed: question#, answers, time limit 
 
-  var time = 5;
+  var time = 15;
   var intervalId;
   var questionCvar = 0;
   var correctAnswer = 0;
@@ -9,7 +9,7 @@ $(document).ready(function(){
   var $findVal;
 
   var btnChoice = false;
-  var gameRun = false;
+  
 
   
 
@@ -78,7 +78,28 @@ $(document).ready(function(){
           b: 0
         }
       }
-    }
+    },
+    4: {
+      Question: "What is the meal called that we eat on the first 2 nights of passover?",
+      Answer: {
+        A: {
+          a: "Seder",
+          b: 1
+        },
+        B: {
+          a: "There is no name, it's called 'let's eat!'",
+          b: 0
+        },
+        C: {
+          a: "Food other than matzo is forbidden on passover",
+          b: 0
+        },
+        D: {
+          a: "Wine",
+          b: 0
+        }
+      }
+    },
   }
   // question cycling
 
@@ -88,7 +109,7 @@ $(document).ready(function(){
 
   function questionCycle (questionCvar){
 
-    if (questionCvar === 4){
+    if (questionCvar === 5){
       return;
     };
     btnChoice = false;
@@ -118,14 +139,14 @@ $(document).ready(function(){
       questionCycle(questionCvar);
     }
 
-    else if (time === 0 && questionCvar !== 4){
+    else if (time === 0 && questionCvar !== 5){
       questionCvar++
       questionCycle(questionCvar);
-      time = 5;
+      time = 15;
       $("#timer").text(time);
       timerRun();
     }
-    else if (questionCvar === 4){
+    else if (questionCvar === 5){
       clearInterval(intervalId);
       $("#timer").text("0");
       $("#clear").empty();

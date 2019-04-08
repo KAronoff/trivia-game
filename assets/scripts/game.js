@@ -100,7 +100,134 @@ $(document).ready(function(){
         }
       }
     },
-  }
+    5: {
+      Question: "There are five grains that can become leavened and are forbidden to be eaten on Passover. They are: wheat, rye, oats, spelt, and _____",
+      Answer: {
+        A: {
+          a: "Rice",
+          b: 0
+        },
+        B: {
+          a: "Quinoa",
+          b: 0
+        },
+        C: {
+          a: "Barley",
+          b: 1
+        },
+        D: {
+          a: "Corn",
+          b: 0
+        }
+      }
+    },
+    6: {
+      Question: "The holiday goes by several names in Biblical texts. Which one of the following is from comedian Joel Chasnoff?",
+      Answer: {
+        A: {
+          a: "Chag HaConstipation",
+          b: 1
+        },
+        B: {
+          a: "Chag HaPesach",
+          b: 0
+        },
+        C: {
+          a: "Chag HaAviv",
+          b: 0
+        },
+        D: {
+          a: "Chag HaMatzot",
+          b: 0
+        }
+      }
+    },
+    7: {
+      Question: "It is traditional to publically read 'The Song of Songs' on the Sabbath duringg Pasover. Who is the purported Biblical author of this work?",
+      Answer: {
+        A: {
+          a: "King David",
+          b: 0
+        },
+        B: {
+          a: "King Solomon",
+          b: 1
+        },
+        C: {
+          a: "Moses",
+          b: 0
+        },
+        D: {
+          a: "Daniel",
+          b: 0
+        }
+      }
+    },
+    8: {
+      Question: "Which of the following was NOT one of the plagues brought forth upon the Egyptians?",
+      Answer: {
+        A: {
+          a: "Dance Dance Revolution Remix",
+          b: 1
+        },
+        B: {
+          a: "Frogs",
+          b: 0
+        },
+        C: {
+          a: "Hail",
+          b: 0
+        },
+        D: {
+          a: "Darkness",
+          b: 0
+        }
+      }
+    },
+    9: {
+      Question: "In what Jewish month does Passover occur?",
+      Answer: {
+        A: {
+          a: "Cheshvan",
+          b: 0
+        },
+        B: {
+          a: "Av",
+          b: 0
+        },
+        C: {
+          a: "Nissan",
+          b: 1
+        },
+        D: {
+          a: "Tishrei",
+          b: 0
+        }
+      }
+    },
+    9: {
+      Question: "The movie special and accompanying book 'The Animated Hagaddah' utilizes what animation style?",
+      Answer: {
+        A: {
+          a: "Hand Drawn",
+          b: 0
+        },
+        B: {
+          a: "Computer",
+          b: 0
+        },
+        C: {
+          a: "Stop Motion",
+          b: 0
+        },
+        D: {
+          a: "Claymation",
+          b: 1
+        }
+      }
+    },
+  };
+
   // question cycling
 
   function hidden (){
@@ -109,7 +236,7 @@ $(document).ready(function(){
 
   function questionCycle (questionCvar){
 
-    if (questionCvar === 5){
+    if (questionCvar === 11){
       return;
     };
     btnChoice = false;
@@ -139,7 +266,7 @@ $(document).ready(function(){
       questionCycle(questionCvar);
     }
 
-    else if (time === 0 && questionCvar !== 5){
+    else if (time === 0 && questionCvar !== 11){
       questionCvar++
       questionCycle(questionCvar);
       time = 15;
@@ -148,7 +275,7 @@ $(document).ready(function(){
       $(".btnclass").css({"background-color":"#530858", "border-color":"#530858", "color":"#D3DDDA"});
       
     }
-    else if (questionCvar === 5){
+    else if (questionCvar === 11){
       clearInterval(intervalId);
       $("#timer").text("0");
       $("#clear").empty();

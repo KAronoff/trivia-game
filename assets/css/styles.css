@@ -13,7 +13,7 @@ body {
 .btnclass {
   background-color: #530858;
   color: #D3DDDA;
-  border-color: #D3DDDA;
+  border-color: #530858;
 }
 .btn-outline-primary:not(:disabled):not(.disabled).active, .btn-outline-primary:not(:disabled):not(.disabled):active, .show>.btn-outline-primary.dropdown-toggle {
   color: #fff;
